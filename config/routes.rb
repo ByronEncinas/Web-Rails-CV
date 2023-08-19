@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  #get '/home'
-  get '/bienvenidos', to: 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # get '/home'
+  get "/home", to: "home#index"
+  # convention: get 'controller/function', to: 'controller#function'
+  resources :articles
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  root "home#index"
+
+
 end
