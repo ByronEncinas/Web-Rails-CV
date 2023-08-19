@@ -652,3 +652,53 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 13ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2849)
 
 
+Started GET "/" for ::1 at 2023-08-18 22:24:26 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.1.0/gems/railties-7.0.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.4ms | Allocations: 529)
+Completed 200 OK in 22ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4479)
+
+
+Started GET "/home" for ::1 at 2023-08-18 22:30:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/index" for ::1 at 2023-08-18 22:30:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index" for ::1 at 2023-08-18 22:46:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/home" for ::1 at 2023-08-18 22:46:59 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/bienvenidos" for ::1 at 2023-08-18 22:47:18 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 499.1ms | Allocations: 93978)
+Completed 200 OK in 511ms (Views: 502.5ms | ActiveRecord: 0.0ms | Allocations: 98110)
+
+
+Started GET "/bienvenidos" for ::1 at 2023-08-18 22:50:35 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 129)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3041)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 4005)
+
+
+Started GET "/bienvenidos" for ::1 at 2023-08-18 22:55:32 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2405)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 2686)
+
+

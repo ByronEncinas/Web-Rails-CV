@@ -1,37 +1,65 @@
 # Initialized Rails Project
 
-- [x] Initialized with PostgreSQL: created superuser named: rails, pass: 'password'
+- [ ] [Create simple BlogPost Model with no styles](https://www.youtube.com/watch?v=wSNTT8MLI90&t=1s)
 
-        bjencivelaz@riefenstahl:~/SweetHome/rails_projects/Web-Rails-CV$ sudo -u postgres psql
-        could not change directory to "/home/bjencivelaz/SweetHome/rails_projects/Web-Rails-CV": Permission denied
-        psql (15.4 (Debian 15.4-1.pgdg120+1))
-        Type "help" for help.
+Minuto 16:52 / 3:27:26
 
-        postgres=# create user rails with password 'password';
-        CREATE ROLE
-        postgres=# alter role rails superuser createrole createdb replication
-        postgres-# alter role rails superuser createrole createdb replication;
-        ERROR:  syntax error at or near "alter"
-        LINE 2: alter role rails superuser createrole createdb replication;
-                ^
-        postgres=# alter user rails superuser createrole createdb replication;
-        ALTER ROLE
-        postgres=# \q
+## Steps taken (part 1)
 
-Altered ./config/database.yml to have 
+Use *bundle install* if there is any dependency missing or deprecated
 
-        default: &default
-            adapter: postgresql
-            encoding: SQL_ASCII
-            # For details on connection pooling, see Rails configuration guide
-            # https://guides.rubyonrails.org/configuring.html#database-pooling
-            pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-            host: localhost
-            username: rails
-            password: 'password'
+- Uno de los primeros pasos es crear una página de inicio que no sea la que está por defecto con el círculo rojo de **Rails**. Así que, para eso, tenemos que crear una nueva ruta
 
-- [ ] Create simple BlogPost Model
+en ./config/routes.rb podemos añadir:
 
-This will be used to create a forum or profile feed for each of the users, in this case the author. and will expand for others.
+    get "/home", to: "home#index"
 
-This Website is suposed to have a Profile for every user
+sin embargo, esta pagina, como todas, debe contar con un controlador así que debemos crear el siguiente archivo (dada la convención de usar el {nombre}#index para nombrar el controlador nuevo):
+        
+     ./app/controller/home_controller.rb
+
+This file must come with a class HomeController (due to convention: [class] NameController => [Filename] name_controller.rb)
+
+and inside said class, there will be an action or function called index.
+
+    def HomeController < ApplicationController
+        def index
+        end
+    end
+
+Esto nos dice que un controlador, puede manejar varias paginas de un solo sitio web.
+
+- Must note that the previous way is not the most efficient way to create a controller. We can use ruby generate method to do that
+
+    rails generate controller home index
+
+which will create other helper methods such a test, stylesheets that we might not use but are either way part of the *convention over configuration*. The result of the generate controller command will respond as this.
+
+    Web-Rails-CV $ rails g controller Home index
+        create  app/controllers/home_controller.rb
+        route  get 'home/index'
+        invoke  erb
+        create    app/views/home
+        create    app/views/home/index.html.erb
+        invoke  test_unit
+        create    test/controllers/home_controller_test.rb
+        invoke  helper
+        create    app/helpers/home_helper.rb
+        invoke    test_unit
+
+Were we can see the creation of the route and the controller, also index.html.erb which is the page that the index will be rendering. From the fifth line on those are things we might not use much.
+
+- Una vez realizado todo esto, podemos usar
+
+    rails server
+
+o
+
+    rails s
+
+y entrar a http://localhost:3000/bienvenidos en nuestro navegador (nuestra unica ruta a index debe ser get '/bienvenidos', to: 'home#index').
+
+Esta página nos mostrará lo siguiente.
+
+    Home#index
+    Find me in app/views/home/index.html.erb
