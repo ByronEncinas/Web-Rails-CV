@@ -1,18 +1,21 @@
-<h1>Web Rails CV (Home#index)</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="h-screen flex-col justify-center items-center bg-dark text-gray-600">
+  <h1 class="text-center break">Home Screen for Rails Created Website (Home#index)</h1>
 
-<%#= This is a comment %>
-<%#= The important thing here is that we are using ruby loop syntax in html to extract info from a database %>
+  <h2 class="text-center break mt-4"> Find me in app/views/home/index.html.erb</h2>
 
-<% @articles.each do |article| %>
 	
-	<div>
 
-	<%#= To link a header into a specific route for the post %>
-	<h2> <%= link_to article.title, article_path(article) %> </h2>
-
-	<%=  article.title %> 
-
-	</div>
-	
-<% end %>
+  <!-- This is a comment -->
+  <!-- The important thing here is that we are using ruby loop syntax in html to extract info from a database -->
+  <div class="md:grid md:grid-flow-row gap-4 mt-4 text-justify">
+    <% @articles.each do |article| %>
+      <div>
+        <!-- To link a header to a specific route for the post -->
+        <h2 class="text-blue-500">
+          <%= link_to article.title, article_path(article) %>
+        </h2>
+        <%= article.title %>
+      </div>
+    <% end %>
+  </div>
+</div>
